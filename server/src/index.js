@@ -15,8 +15,8 @@ app.use(
       if (!origin) return cb(null, true);
       const ok =
         origin === "http://localhost:5173" ||
-        /^https:\/\/bona-studios(-[a-z0-9]+)?\.vercel\.app$/.test(origin);
-      cb(ok ? null : new Error("CORS blocked"), ok);
+        /^https:\/\/bona-studios(-[a-z0-9]+)*\.vercel\.app$/.test(origin);
+      cb(null, ok);
     },
     credentials: true,
   })
